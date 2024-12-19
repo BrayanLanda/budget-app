@@ -8,8 +8,8 @@ export const routes: Routes = [
         loadComponent: () => import('./layout/layout.component'),
         children: [
             { path: 'login', component: LoginComponent },
-            { path: 'home', component: HomeComponent },
-            { path: '**', redirectTo: 'home' }
+            { path: 'hero', component: HomeComponent },
+            { path: '**', redirectTo: 'hero' }
         ]
     }
 ]
