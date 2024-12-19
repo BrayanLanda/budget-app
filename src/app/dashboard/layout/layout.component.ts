@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
-import { RouterModule, RouterOutlet } from '@angular/router';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
+import { AccountService } from '../../_services/account.service';
 
 
 @Component({
@@ -16,8 +17,15 @@ import { RouterModule, RouterOutlet } from '@angular/router';
   styleUrl: './layout.component.css'
 })
 export default class LayoutComponent {
+  private accountService = inject(AccountService);
+  private router = inject(Router);
   sidebarItems = [
     { label: 'Gastos', icon: 'dollar-circle', url: './list' },
     { label: 'Perfil', icon: 'user', url: './profile' },
   ]
+
+  logout() {
+    this.accountService.logout();
+    this.router.navigateByUrl('/');
+  }
 }

@@ -7,14 +7,14 @@
       <p class="subtitle">Gestiona tus finanzas de manera inteligente</p>
     </div>
 
-    <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+    <form nz-form [formGroup]="myForm" class="login-form" (ngSubmit)="login()">
       <nz-form-item>
-        <nz-form-control nzErrorTip="Por favor ingresa tu usuario">
+        <nz-form-control nzErrorTip="Por favor ingresa un correo">
           <nz-input-group [nzPrefix]="userIcon">
-            <input type="text" 
+            <input type="email" 
                    nz-input 
-                   formControlName="username" 
-                   placeholder="Usuario" 
+                   formControlName="email" 
+                   placeholder="Email" 
                    class="custom-input"/>
             <ng-template #userIcon>
               <span nz-icon nzType="user" nzTheme="outline"></span>
@@ -39,14 +39,14 @@
       </nz-form-item>
 
       <div class="login-options">
-        <label nz-checkbox formControlName="remember">Recordarme</label>
         <a class="forgot-link">¿Olvidaste tu contraseña?</a>
       </div>
 
       <button nz-button 
               [nzType]="'primary'" 
+              type="submit"
               class="login-button"
-              [disabled]="!validateForm.valid">
+              [disabled]="!myForm.valid">
         Iniciar Sesión
       </button>
     </form>
