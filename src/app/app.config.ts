@@ -4,7 +4,7 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { NZ_ICONS } from 'ng-zorro-antd/icon';
-import { FastBackwardOutline } from '@ant-design/icons-angular/icons';
+import { FastBackwardOutline, LeftOutline, LockOutline, UserOutline } from '@ant-design/icons-angular/icons';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -13,7 +13,7 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(),
     {
       provide: NZ_ICONS,
-      useValue: []
+      useValue: [UserOutline, LockOutline, LeftOutline]
     },
   ]
 };
