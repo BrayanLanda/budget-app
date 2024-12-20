@@ -4,7 +4,7 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { NZ_ICONS } from 'ng-zorro-antd/icon';
-import { DollarCircleOutline, LeftOutline, LockOutline, LogoutOutline, UserOutline } from '@ant-design/icons-angular/icons';
+import { DollarCircleOutline, LeftOutline, LockOutline, LogoutOutline, PlusOutline, UserOutline } from '@ant-design/icons-angular/icons';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideToastr } from 'ngx-toastr';
@@ -22,7 +22,7 @@ export const appConfig: ApplicationConfig = {
     }),
     {
       provide: NZ_ICONS,
-      useValue: [UserOutline, LockOutline, LeftOutline, DollarCircleOutline, LogoutOutline]
+      useValue: [UserOutline, LockOutline, PlusOutline, LeftOutline, DollarCircleOutline, LogoutOutline]
     },
   ]
 };
