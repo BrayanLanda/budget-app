@@ -1,53 +1,19 @@
-<nz-card class="expense-card" [nzBordered]="false">
-    <div class="card-header">
-      <nz-statistic 
-        [nzValue]="1500"
-        [nzTitle]="'Gasto Total'"
-        [nzPrefix]="prefix"
-        [nzSuffix]="'USD'"
-      >
-        <ng-template #prefix>
-          <span nz-icon nzType="dollar-circle" nzTheme="outline"></span>
-        </ng-template>
-      </nz-statistic>
-      
-      <div class="card-date">
-        Diciembre 2024
-      </div>
+<div class="expense-page">
+  <div class="expense-header">
+    <h1 nz-typography>
+      <span nz-icon nzType="wallet" nzTheme="outline"></span>
+      Listado de Gastos
+    </h1>
+    <button nz-button nzType="primary" class="add-expense-btn">
+      <span nz-icon nzType="plus"></span>
+      Nuevo Gasto
+    </button>
+  </div>
+  <div nz-row [nzGutter]="[16, 16]">
+    @for (expense of expenses; track $index) {
+    <div nz-col [nzXs]="24" [nzSm]="24" [nzMd]="12" [nzLg]="12">
+      <app-card-expense [expense]="expense"></app-card-expense>
     </div>
-
-    <div class="card-description">
-      <p>Último gasto: Compras supermercado - $200</p>
-      <p>Categoría más gastada: Alimentación</p>
-    </div>
-
-    <div class="card-actions">
-      <button 
-        nz-button 
-        nzType="primary" 
-        nzShape="circle"
-        nz-tooltip="Crear nuevo gasto"
-      >
-        <span nz-icon nzType="plus"></span>
-      </button>
-
-      <button 
-        nz-button 
-        nzType="default" 
-        nzShape="circle"
-        nz-tooltip="Actualizar gasto"
-      >
-        <span nz-icon nzType="edit"></span>
-      </button>
-
-      <button 
-        nz-button 
-        nzType="primary" 
-        nzDanger 
-        nzShape="circle"
-        nz-tooltip="Eliminar gasto"
-      >
-        <span nz-icon nzType="delete"></span>
-      </button>
-    </div>
-  </nz-card>
+    }
+  </div>
+</div>

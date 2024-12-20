@@ -1,0 +1,57 @@
+<nz-card class="expense-card" [nzBordered]="false" [nzHoverable]="true">
+  <div class="card-header">
+    <nz-statistic
+      [nzValue]="expense.amount"
+      [nzTitle]="'Gasto Total'"
+      [nzPrefix]="prefix"
+      [nzSuffix]="'USD'"
+      [nzValueStyle]="{ color: '#3f8600' }"
+    >
+      <ng-template #prefix>
+        <span nz-icon nzType="dollar-circle" nzTheme="outline"></span>
+      </ng-template>
+    </nz-statistic>
+
+    <h2>
+      {{ expense.category }}
+    </h2>
+
+    <div class="card-date">
+      {{ expense.date | date : "mediumDate" }}
+    </div>
+  </div>
+
+  <div class="card-description">
+    <p>
+      <span nz-icon nzType="shopping-cart" nzTheme="outline"></span>
+      {{ expense.description }}
+    </p>
+  </div>
+
+  <div class="card-actions">
+    <button
+      nz-button
+      nzType="primary"
+      nzShape="circle"
+      nzSize="large"
+      [routerLink]="['/expense/edit', expense.id]"
+      nz-tooltip="Actualizar gasto"
+    >
+      <span nz-icon nzType="edit"></span>
+    </button>
+
+    <nz-divider nzType="vertical"></nz-divider>
+
+    <button
+      nz-button
+      nzType="primary"
+      nzDanger
+      nzShape="circle"
+      nzSize="large"
+      nz-tooltip="Eliminar gasto"
+      (click)="showDeleteConfirm()"
+    >
+      <span nz-icon nzType="delete"></span>
+    </button>
+  </div>
+</nz-card>

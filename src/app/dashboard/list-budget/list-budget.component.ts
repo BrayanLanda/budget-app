@@ -1,17 +1,24 @@
-import { Component } from '@angular/core';
-import { NzCardModule } from 'ng-zorro-antd/card';
-import { NzStatisticModule } from 'ng-zorro-antd/statistic';
+import { Component, inject, OnInit } from '@angular/core';
+import { Expense } from '../../_interfaces/expense';
+import { ExpenseService } from '../../_services/expense.service';
+import { CardExpenseComponent } from '../card-expense/card-expense.component';
+import { NzTypographyModule } from 'ng-zorro-antd/typography';
 import { NzButtonModule } from 'ng-zorro-antd/button';
-import { NzIconModule } from 'ng-zorro-antd/icon';
-import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
+import { NzGridModule } from 'ng-zorro-antd/grid';
 
 @Component({
   selector: 'app-list-budget',
   standalone: true,
-  imports: [NzCardModule, NzStatisticModule, NzButtonModule, NzIconModule, NzToolTipModule],
+  imports: [CardExpenseComponent, NzTypographyModule, NzButtonModule, NzGridModule],
   templateUrl: './list-budget.component.html',
   styleUrl: './list-budget.component.css'
 })
-export class ListBudgetComponent {
+export class ListBudgetComponent implements OnInit {
+    private expenseService = inject(ExpenseService);
+    public expenses: Expense[] = [];
 
+    ngOnInit(): void {
+      this.expenseService.getExpenses()
+        .subscribe( expenses => this.expenses = expenses)
+    }
 }

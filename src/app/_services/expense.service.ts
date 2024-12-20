@@ -12,7 +12,7 @@ export class ExpenseService {
   private baseUrl = environment.baseUrl;
 
   getExpenses(): Observable<Expense[]> {
-    return this.http.get<Expense[]>(`${this.baseUrl}/expenses`)
+    return this.http.get<Expense[]>(`${this.baseUrl}expenses`)
   }
 
   getExpenseById(id: string): Observable<Expense | undefined> {
