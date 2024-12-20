@@ -1,4 +1,4 @@
-import { Component, inject, Input, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Expense } from '../../_interfaces/expense';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzStatisticModule } from 'ng-zorro-antd/statistic';
@@ -23,8 +23,9 @@ export class CardExpenseComponent implements OnInit{
   private modal = inject(NzModalService);
   private expenseService = inject(ExpenseService);
 
-  @Input()
-  public expense!: Expense;
+  @Input() public expense!: Expense;
+
+  @Output() public expenseDeleted = new EventEmitter<string>();
 
   ngOnInit(): void {
     if(!this.expense ) throw Error('Expense property is requiered')
@@ -54,8 +55,7 @@ export class CardExpenseComponent implements OnInit{
               nzTitle: 'Gasto eliminado',
               nzContent: 'El gasto ha sido eliminado correctamente'
             });
-            // Aquí podrías emitir un evento para actualizar la lista de gastos
-            // this.expenseDeleted.emit(this.expense.id);
+            this.expenseDeleted.emit(this.expense.id);
           } else {
             this.modal.error({
               nzTitle: 'Error',

@@ -35,6 +35,5 @@ export class LoginComponent {
           Swal.fire('Usuario o clave invalida', message, 'error')
         }
       })
-
   }
 }

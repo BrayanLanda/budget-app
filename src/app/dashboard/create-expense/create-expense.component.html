@@ -1,0 +1,75 @@
+<div class="form-container">
+  <nz-card [nzTitle]="'Crear Nuevo Gasto'" [nzBordered]="false">
+    <form nz-form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+      <!-- Descripción -->
+      <nz-form-item>
+        <nz-form-label [nzSpan]="24" nzRequired>Descripción</nz-form-label>
+        <nz-form-control
+          [nzSpan]="24"
+          nzErrorTip="La descripción es requerida y debe tener al menos 3 caracteres">
+          <input
+            nz-input
+            formControlName="description"
+            placeholder="Ej: Compras supermercado" />
+        </nz-form-control>
+      </nz-form-item>
+
+      <!-- Monto -->
+      <nz-form-item>
+        <nz-form-label [nzSpan]="24" nzRequired>Monto</nz-form-label>
+        <nz-form-control
+          [nzSpan]="24"
+          nzErrorTip="Por favor ingrese un monto válido">
+          <nz-input-number
+            [nzMin]="0"
+            formControlName="amount"
+            [nzStep]="1"
+            [nzFormatter]="formatter"
+            [nzParser]="parser"
+          ></nz-input-number>
+        </nz-form-control>
+      </nz-form-item>
+
+      <!-- Categoría -->
+      <nz-form-item>
+        <nz-form-label [nzSpan]="24" nzRequired>Categoría</nz-form-label>
+        <nz-form-control
+          [nzSpan]="24"
+          nzErrorTip="Por favor seleccione una categoría">
+          <nz-select
+            formControlName="category"
+            nzPlaceHolder="Seleccione una categoría">
+            @for (category of categories; track category) {
+              <nz-option
+                [nzValue]="category"
+                [nzLabel]="category">
+              </nz-option>
+            }
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+
+      <!-- Botones -->
+      <nz-form-item>
+        <nz-form-control [nzSpan]="24">
+          <div class="form-buttons">
+            <button
+              nz-button
+              nzType="default"
+              routerLink="/dashboard/list">
+              Cancelar
+            </button>
+            <button
+              nz-button
+              nzType="primary"
+              [nzLoading]="isSubmitting"
+              type="submit">
+
+              Crear Gasto
+            </button>
+          </div>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </nz-card>
+</div>

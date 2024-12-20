@@ -4,16 +4,19 @@
       <span nz-icon nzType="wallet" nzTheme="outline"></span>
       Listado de Gastos
     </h1>
-    <button nz-button nzType="primary" class="add-expense-btn">
+    <button routerLink="/dashboard/new-expense" nz-button nzType="primary" class="add-expense-btn">
       <span nz-icon nzType="plus"></span>
       Nuevo Gasto
     </button>
   </div>
   <div nz-row [nzGutter]="[16, 16]">
-    @for (expense of expenses; track $index) {
-    <div nz-col [nzXs]="24" [nzSm]="24" [nzMd]="12" [nzLg]="12">
-      <app-card-expense [expense]="expense"></app-card-expense>
-    </div>
+    @for (expense of expenses; track expense.id) {
+      <div nz-col [nzXs]="24" [nzSm]="24" [nzMd]="12" [nzLg]="12">
+        <app-card-expense
+          [expense]="expense"
+          (expenseDeleted)="onExpenseDeleted($event)">
+        </app-card-expense>
+      </div>
     }
   </div>
 </div>
