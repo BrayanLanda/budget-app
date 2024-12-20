@@ -4,15 +4,22 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { NZ_ICONS } from 'ng-zorro-antd/icon';
-import { DollarCircleFill, DollarCircleOutline, FastBackwardOutline, LeftOutline, LockOutline, LogoutOutline, UserOutline } from '@ant-design/icons-angular/icons';
-import { provideHttpClient } from '@angular/common/http';
+import { DollarCircleOutline, LeftOutline, LockOutline, LogoutOutline, UserOutline } from '@ant-design/icons-angular/icons';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { provideToastr } from 'ngx-toastr';
+import { jwtInterceptor } from './_interceptor/jwt.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }), 
     provideRouter(routes), 
-    provideHttpClient(),
+    provideHttpClient( withInterceptors([jwtInterceptor] ) ),
     provideClientHydration(),
+    provideAnimations(),
+    provideToastr({
+      positionClass: 'toast-botton-right'
+    }),
     {
       provide: NZ_ICONS,
       useValue: [UserOutline, LockOutline, LeftOutline, DollarCircleOutline, LogoutOutline]

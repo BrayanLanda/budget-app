@@ -21,7 +21,6 @@ export class LoginComponent {
   private fb = inject(FormBuilder)
   private router = inject(Router)
   private accountService = inject(AccountService)
-
   public myForm: FormGroup = this.fb.group({
     email: this.fb.control('', [Validators.required, Validators.email]),
     password: this.fb.control('', [Validators.required, Validators.minLength(6)]),
@@ -33,7 +32,7 @@ export class LoginComponent {
       .subscribe({
         next: () => this.router.navigateByUrl('/dashboard'),
         error: (message) => {
-          Swal.fire('Error', message, 'error')
+          Swal.fire('Usuario o clave invalida', message, 'error')
         }
       })
 
