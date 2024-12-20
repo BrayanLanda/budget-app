@@ -24,13 +24,13 @@ El proyecto incluye un layout básico con un **sidebar** y un contenido principa
 1. Clona el repositorio:
 
    ```bash
-   git clone https://github.com/BrayanLanda/budget-app```
+   git clone https://github.com/BrayanLanda/budget-app
 
    ```bash
-   cd budget-app```
+   cd budget-app
 
     ```bash
-   npm install```
+   npm install
 
    ```bash
    ng serve```
