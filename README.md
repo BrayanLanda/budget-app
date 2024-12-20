@@ -25,13 +25,17 @@ El proyecto incluye un layout básico con un **sidebar** y un contenido principa
 
    ```bash
    git clone https://github.com/BrayanLanda/budget-app
+   ```
 
    ```bash
    cd budget-app
+   ```
 
     ```bash
    npm install
+   ```
 
    ```bash
-   ng serve```
+   ng serve
+   ```
 
