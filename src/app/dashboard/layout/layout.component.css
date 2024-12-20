@@ -53,3 +53,7 @@ nz-content {
     background: #fff;
     min-height: 280px;
 }
+
+.icon {
+  margin: 20px;
+}

@@ -1,5 +1,10 @@
 <div class="form-container">
-  <nz-card [nzTitle]="'Crear Nuevo Gasto'" [nzBordered]="false">
+  <nz-card [nzBordered]="false" class="form-card">
+    <div class="login-header">
+      <span nz-icon nzType="left" nzTheme="outline"></span>
+      <h2>Crear Gasto</h2>
+      <p class="subtitle">Gestiona tus gastos, guarda tus trasacciones</p>
+    </div>
     <form nz-form [formGroup]="myForm" (ngSubmit)="onSubmit()">
       <!-- Descripción -->
       <nz-form-item>
