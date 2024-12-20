@@ -1,4 +1,11 @@
-import { Component, inject, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  inject,
+  Input,
+  OnInit,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 import { Expense } from '../../_interfaces/expense';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzStatisticModule } from 'ng-zorro-antd/statistic';
@@ -15,11 +22,22 @@ import { ExpenseService } from '../../_services/expense.service';
 @Component({
   selector: 'app-card-expense',
   standalone: true,
-  imports: [DatePipe, NzModalModule, NzDividerModule, NzTagModule, NzCardModule, NzStatisticModule, NzButtonModule, NzIconModule, NzToolTipModule, RouterLink],
+  imports: [
+    DatePipe,
+    NzModalModule,
+    NzDividerModule,
+    NzTagModule,
+    NzCardModule,
+    NzStatisticModule,
+    NzButtonModule,
+    NzIconModule,
+    NzToolTipModule,
+    RouterLink,
+  ],
   templateUrl: './card-expense.component.html',
-  styleUrl: './card-expense.component.css'
+  styleUrl: './card-expense.component.css',
 })
-export class CardExpenseComponent implements OnInit{
+export class CardExpenseComponent implements OnInit {
   private modal = inject(NzModalService);
   private expenseService = inject(ExpenseService);
 
@@ -28,7 +46,7 @@ export class CardExpenseComponent implements OnInit{
   @Output() public expenseDeleted = new EventEmitter<string>();
 
   ngOnInit(): void {
-    if(!this.expense ) throw Error('Expense property is requiered')
+    if (!this.expense) throw Error('Expense property is requiered');
   }
 
   showDeleteConfirm(): void {
@@ -47,28 +65,27 @@ export class CardExpenseComponent implements OnInit{
   private deleteExpense(): void {
     if (!this.expense.id) return;
 
-    this.expenseService.deleteExpenseById(this.expense.id)
-      .subscribe({
-        next: (wasDeleted) => {
-          if (wasDeleted) {
-            this.modal.success({
-              nzTitle: 'Gasto eliminado',
-              nzContent: 'El gasto ha sido eliminado correctamente'
-            });
-            this.expenseDeleted.emit(this.expense.id);
-          } else {
-            this.modal.error({
-              nzTitle: 'Error',
-              nzContent: 'No se pudo eliminar el gasto'
-            });
-          }
-        },
-        error: () => {
+    this.expenseService.deleteExpenseById(this.expense.id).subscribe({
+      next: (wasDeleted) => {
+        if (wasDeleted) {
+          this.modal.success({
+            nzTitle: 'Gasto eliminado',
+            nzContent: 'El gasto ha sido eliminado correctamente',
+          });
+          this.expenseDeleted.emit(this.expense.id);
+        } else {
           this.modal.error({
             nzTitle: 'Error',
-            nzContent: 'Ocurrió un error al eliminar el gasto'
+            nzContent: 'No se pudo eliminar el gasto',
           });
         }
-      });
+      },
+      error: () => {
+        this.modal.error({
+          nzTitle: 'Error',
+          nzContent: 'Ocurrió un error al eliminar el gasto',
+        });
+      },
+    });
   }
 }

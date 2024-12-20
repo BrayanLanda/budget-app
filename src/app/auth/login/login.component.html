@@ -1,8 +1,15 @@
 <div class="login-container">
   <nz-card class="login-card">
-    
+
     <div class="login-header">
-      <span nz-icon nzType="left" nzTheme="outline"></span>
+      <span nz-icon
+            nzType="left"
+            nzTheme="outline"
+            class="back-button"
+            (click)="goBack()"
+            nz-tooltip
+            nzTooltipTitle="Volver a inicio">
+      </span>
       <h2>Bienvenido</h2>
       <p class="subtitle">Gestiona tus finanzas de manera inteligente</p>
     </div>
@@ -11,10 +18,10 @@
       <nz-form-item>
         <nz-form-control nzErrorTip="Por favor ingresa un correo">
           <nz-input-group [nzPrefix]="userIcon">
-            <input type="email" 
-                   nz-input 
-                   formControlName="email" 
-                   placeholder="Email" 
+            <input type="email"
+                   nz-input
+                   formControlName="email"
+                   placeholder="Email"
                    class="custom-input"/>
             <ng-template #userIcon>
               <span nz-icon nzType="user" nzTheme="outline"></span>
@@ -26,9 +33,9 @@
       <nz-form-item>
         <nz-form-control nzErrorTip="Por favor ingresa tu contraseña">
           <nz-input-group [nzPrefix]="lockIcon">
-            <input type="password" 
-                   nz-input 
-                   formControlName="password" 
+            <input type="password"
+                   nz-input
+                   formControlName="password"
                    placeholder="Contraseña"
                    class="custom-input"/>
             <ng-template #lockIcon>
@@ -42,8 +49,8 @@
         <a class="forgot-link">¿Olvidaste tu contraseña?</a>
       </div>
 
-      <button nz-button 
-              [nzType]="'primary'" 
+      <button nz-button
+              [nzType]="'primary'"
               type="submit"
               class="login-button"
               [disabled]="!myForm.valid">

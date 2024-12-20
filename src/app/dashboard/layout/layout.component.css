@@ -1,57 +1,57 @@
 .layout {
-    min-height: 100vh;
+  min-height: 100vh;
+  display: flex;
+}
+
+.user-name{
+  color: #fff;
 }
 
 .sidebar-content {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 95vh;
+  position: sticky;
+  top: 0;
 }
 
 .profile-section {
-    padding: 24px;
-    text-align: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.user-avatar {
-    display: block;
-    margin: 0 auto 12px;
-}
-
-.user-name {
-    margin: 0;
-    color: #fff;
-    font-size: 14px;
+  padding: 24px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
 }
 
 .menu-items {
-    flex: 1;
-    padding: 16px 0;
-}
-
-:host ::ng-deep .ant-menu-item {
-    margin: 8px 0;
-    height: 48px;
-    line-height: 48px;
-    padding: 0 24px !important;
+  flex: 1;
+  padding: 16px 0;
+  overflow-y: auto;
 }
 
 .logout-section {
-    padding: 16px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-button:hover {
-    background-color: rgb(232, 131, 131);
-    color: #fff;
+  padding: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
 }
 
 nz-content {
-    margin: 24px 16px 0;
-    padding: 24px;
-    background: #fff;
-    min-height: 280px;
+  margin: 24px 16px 0;
+  padding: 24px;
+  background: #fff;
+  overflow-y: auto;
+  height: calc(100vh - 48px);
+}
+
+:host ::ng-deep .ant-menu-item {
+  margin: 8px 0;
+  height: 48px;
+  line-height: 48px;
+  padding: 0 24px !important;
+}
+
+button:hover {
+  background-color: rgb(232, 131, 131);
+  color: #fff;
 }
 
 .icon {

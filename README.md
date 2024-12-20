@@ -1,27 +1,37 @@
-# TestAngular
+# Test Riwi
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.12.
+Este es un proyecto de ejemplo desarrollado en Angular utilizando **Ng Zorro** para el diseño de componentes.
 
-## Development server
+## Descripción
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+El proyecto incluye un layout básico con un **sidebar** y un contenido principal. El objetivo es proporcionar una interfaz moderna y funcional utilizando las herramientas que ofrece la librería **Ng Zorro**.
 
-## Code scaffolding
+## Tecnologías utilizadas
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Angular**: Framework para desarrollo web.
+- **Ng Zorro**: Librería de componentes basados en Ant Design para Angular.
+- **CSS**: Para los estilos personalizados.
 
-## Build
+## Características principales
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **Barra lateral interactiva** con menú plegable.
+- Diseño responsive y adaptable.
+- Breadcrumb para navegación jerárquica.
+- Configuración inicial para iconos personalizados.
 
-## Running unit tests
+## Instalación y ejecución
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. Clona el repositorio:
 
-## Running end-to-end tests
+   ```bash
+   git clone https://github.com/BrayanLanda/budget-app```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+   ```bash
+   cd budget-app```
 
-## Further help
+    ```bash
+   npm install```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+   ```bash
+   ng serve```
+

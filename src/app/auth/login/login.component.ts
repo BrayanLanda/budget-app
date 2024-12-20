@@ -6,6 +6,7 @@ import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzCardModule } from 'ng-zorro-antd/card';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 import { AccountService } from '../../_services/account.service';
 import Swal from 'sweetalert2'
 
@@ -13,7 +14,7 @@ import Swal from 'sweetalert2'
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, NzButtonModule, NzCheckboxModule, NzFormModule, NzInputModule, NzCardModule],
+  imports: [ReactiveFormsModule, NzIconModule, NzButtonModule, NzCheckboxModule, NzFormModule, NzInputModule, NzCardModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -35,5 +36,9 @@ export class LoginComponent {
           Swal.fire('Usuario o clave invalida', message, 'error')
         }
       })
+  }
+
+  goBack(): void {
+    this.router.navigate(['/home/hero']);
   }
 }
