@@ -9,7 +9,7 @@ import { User } from '../_interfaces/User';
 })
 export class AccountService {
   private http = inject(HttpClient);
-  baseUrl = environment.baseUrl;
+  private baseUrl = environment.baseUrl;
   currentUser = signal<User | null>(null);
 
   constructor() {
